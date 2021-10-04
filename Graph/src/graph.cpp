@@ -55,6 +55,11 @@ void Graph::RemoveEdge(int vert, int w)
 
 void Graph::Print()
 {
+	std::cout << "Verst: " << this->verts;
+	std::cout << " | ";
+	std::cout << "Edges: " << this->edges;
+	std::cout << std::endl;
+
 	for (int v = 0; v < this->verts; ++v)
 	{
 		Node *node = this->adj[v];

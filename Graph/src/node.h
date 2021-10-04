@@ -5,7 +5,7 @@ public:
 	Node *next;
 
 	Node();
-	Node(int w);
+	Node(int w, Node *next);
 
 	~Node();
 };

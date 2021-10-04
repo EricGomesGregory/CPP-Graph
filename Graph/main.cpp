@@ -8,7 +8,8 @@ int main(int argc, char const *argv[])
 
 	Graph *graph = new Graph(5);
 
-	
+	graph->InsertEdge(0, 1);
+	graph->InsertEdge(0, 2);
 
 	graph->Print();
 

@@ -36,11 +36,20 @@ void Graph::InsertEdge(int vert, int w)
 
 void Graph::RemoveEdge(int vert, int w)
 {
+	if(vert < 0 || vert > this->verts) return;
+
 	Node *node = this->adj[vert];
 
 	while(node)
 	{
+		if(node->w == w)
+		{
+			this->adj[vert] = node->next;
+			this->edges--;
+			return;
+		}
 
+		node = node->next;
 	}
 }
 
@@ -58,6 +67,7 @@ void Graph::Print()
 		}
 		std::cout << std::endl;
 	}
+	std::cout << std::endl;
 }
 
 Graph::~Graph()
@@ -71,9 +81,8 @@ Graph::~Graph()
 		{
 			prev = node;
 			node = node->next;
-			delete(node);
+			delete(prev);
 		}
 	}
 	delete(this->adj);
-	delete(this);
 }

@@ -6,6 +6,4 @@ public:
 
 	Node();
 	Node(int w, Node *next);
-
-	~Node();
 };

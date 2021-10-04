@@ -1,3 +1,4 @@
+#include <iostream>
 #include "graph.h"
 
 Graph::Graph(int v)
@@ -5,7 +6,7 @@ Graph::Graph(int v)
 	this->verts = v;
 	this->edges = 0;
 
-	this->adj = new *Node[v];
+	this->adj = new Node*[v];
 }
 
 void Graph::InsertEdge(int vert, int w)
@@ -24,13 +25,13 @@ void Graph::Print()
 	{
 		Node *node = this->adj[v];
 		
-		printf("%d:", v);
+		std::cout << v << ":";
 		while(node)
 		{
-			printf("%d ", node->w);
+			std::cout << node->w << " ";
 			node = node->next;
 		}
-		printf("\n");
+		std::cout << std::endl;
 	}
 }
 

@@ -1,10 +1,9 @@
 class Node
 {
-protected:
+public:
 	int w;
 	Node *next;
 
-public:
 	Node();
 	Node(int w);
 

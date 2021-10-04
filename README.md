@@ -1,2 +1,2 @@
-# CPP-Graph
- 
+# Graph
+Graph is a small c++.

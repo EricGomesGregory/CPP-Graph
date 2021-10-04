@@ -13,5 +13,6 @@ int main(int argc, char const *argv[])
 
 	graph->Print();
 
+	graph->~Graph();
 	return 0;
 }

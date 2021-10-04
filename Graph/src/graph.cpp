@@ -37,6 +37,11 @@ void Graph::InsertEdge(int vert, int w)
 void Graph::RemoveEdge(int vert, int w)
 {
 	Node *node = this->adj[vert];
+
+	while(node)
+	{
+
+	}
 }
 
 void Graph::Print()
@@ -57,5 +62,18 @@ void Graph::Print()
 
 Graph::~Graph()
 {
+	for (int v = 0; v < this->verts; ++v)
+	{
+		Node *node = this->adj[v];
+		Node *prev = nullptr;
 
+		while(node)
+		{
+			prev = node;
+			node = node->next;
+			delete(node);
+		}
+	}
+	delete(this->adj);
+	delete(this);
 }

@@ -11,3 +11,9 @@ Node::Node(int w, Node *next)
 	this->w = w;
 	this->next = next;	
 }
+
+Node::~Node()
+{
+	delete(this->next);
+	delete(this);
+}

@@ -7,6 +7,8 @@ Graph::Graph(int v)
 	this->edges = 0;
 
 	this->adj = new Node*[v];
+	this->depth = new int[v];
+	this->breadth = new int[v];
 }
 
 void Graph::InsertEdge(int vert, int w)
@@ -90,4 +92,68 @@ Graph::~Graph()
 		}
 	}
 	delete(this->adj);
+}
+
+void Graph::DepthFirstSearch()
+{
+}
+
+
+void Graph::BreadthFirstSearch(int v)
+{
+	int *qeuee = new int[this->verts];
+	int first = 0;
+	int last  = 0;
+
+	int *visited = new int[this->verts];
+	int u;
+
+	visited[v] = 1;
+	qeuee[first] = v;
+	last++;
+
+	std::cout << "Breadth First Search: ";
+
+	while(first != last)
+	{
+		u = qeuee[first];
+		qeuee[first] = 0;
+		std::cout << u << " ";
+		first++;
+
+		Node *node = this->adj[u];
+		while(node)
+		{
+			int w = node->w;
+			if(visited[w] == 0)
+			{
+				this->breadth[w] = u;
+				visited[w] = 1;
+				qeuee[last] = w;
+				last++;
+			}
+
+			node = node->next;
+		}
+	}
+	std::cout << std::endl;
+}
+
+void BPath(Graph *graph, int from, int to)
+{
+	if(from == to)
+	{
+		std::cout << from << " ";
+		return;
+	}
+
+	BPath(graph, from, graph->breadth[to]);
+	std::cout << to << " ";
+}
+
+void Graph::BreadthPath(int from, int to)
+{
+	std::cout << "Path: ";
+	BPath(this, from, to);
+	std::cout << std::endl;
 }

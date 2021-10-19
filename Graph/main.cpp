@@ -29,19 +29,21 @@ int main(int argc, char const *argv[])
 		std::cout << "0- Exit" << std::endl;
 		std::cout << "1- Insert Edge" << std::endl;
 		std::cout << "2- Remove Edge" << std::endl;
-		std::cout << "3- Print" << std::endl;
+		std::cout << "3- Breadth Search" << std::endl;
+		std::cout << "4- Print" << std::endl;
 
 		std::cout << "Input Option:";
 		std::cin  >> option;
 
-		while(option < 0 || option > 3)
+		while(option < 0 || option > 4)
 		{
 			std::cout << std::endl << "Input valid option" << std::endl << std::endl;
 
 			std::cout << "0- Exit" << std::endl;
 			std::cout << "1- Insert Edge" << std::endl;
 			std::cout << "2- Remove Edge" << std::endl;
-			std::cout << "3- Print" << std::endl;
+			std::cout << "3- Breadth Search" << std::endl;
+			std::cout << "4- Print" << std::endl;
 
 			std::cout << "Option:";
 			std::cin  >> option;
@@ -110,6 +112,36 @@ int main(int argc, char const *argv[])
 			break;
 
 			case 3:
+			std::cout << "Breadth First Search" << std::endl << std::endl;
+
+			graph->BreadthFirstSearch(0);
+			
+			std::cout << "Input origin vert:";
+			std::cin  >> vert;
+
+			while(vert < 0 || vert > graph->verts)
+			{
+				std::cout << std::endl << "Input valid origin vert" << std::endl << std::endl;
+
+				std::cout << "Input origin vert:";
+				std::cin  >> vert;
+			}
+
+			std::cout << "Input destination vert:";
+			std::cin  >> w;
+
+			while(w < 0 || w > graph->verts)
+			{
+				std::cout << std::endl << "Input valid destination vert" << std::endl << std::endl;
+
+				std::cout << "Input destination vert:";
+				std::cin  >> w;
+			}
+
+			graph->BreadthPath(vert, w);
+			break;
+
+			case 4:
 			std::cout << "Print" << std::endl;
 			
 			graph->Print();

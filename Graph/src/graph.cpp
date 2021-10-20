@@ -94,7 +94,7 @@ Graph::~Graph()
 	delete(this->adj);
 }
 
-void Graph::DepthFirstSearch()
+void Graph::DepthFirstSearch(int v)
 {
 }
 
@@ -139,21 +139,21 @@ void Graph::BreadthFirstSearch(int v)
 	std::cout << std::endl;
 }
 
-void BPath(Graph *graph, int from, int to)
+void BPath(Graph *graph, int vert, int w)
 {
-	if(from == to)
+	if(vert == w)
 	{
-		std::cout << from << " ";
+		std::cout << vert << " ";
 		return;
 	}
 
-	BPath(graph, from, graph->breadth[to]);
-	std::cout << to << " ";
+	BPath(graph, vert, graph->breadth[w]);
+	std::cout << w << " ";
 }
 
-void Graph::BreadthPath(int from, int to)
+void Graph::BreadthPath(int vert, int w)
 {
 	std::cout << "Path: ";
-	BPath(this, from, to);
+	BPath(this, vert, w);
 	std::cout << std::endl;
 }

@@ -16,9 +16,11 @@ public:
 	void RemoveEdge(int vert, int w);
 	void Print();
 
-	void DepthFirstSearch();
+	void DepthFirstSearch(int v);
+	void DepthPath(int vert, int w);
+
 	void BreadthFirstSearch(int v);
-	void BreadthPath(int from, int to);
+	void BreadthPath(int vert, int w);
 
 	~Graph();
 };
